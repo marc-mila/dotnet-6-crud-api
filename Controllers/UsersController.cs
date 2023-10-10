@@ -35,6 +35,18 @@ public class UsersController : ControllerBase
         var user = _userService.GetById(id);
         return Ok(user);
     }
+	
+	[HttpGet("{username}")]
+	public IActionResult GetUserByUsername(string username)
+	{
+		// Vulnerability: SQL Injection
+		// Directly using user input in a SQL query without proper validation can lead to SQL injection.
+
+		string query = $"SELECT * FROM Users WHERE Username = '{username}'";
+		var user = _userService.ExecuteSqlQuery(query);
+
+		return Ok(user);
+	}
 
     [HttpPost]
     public IActionResult Create(CreateRequest model)
