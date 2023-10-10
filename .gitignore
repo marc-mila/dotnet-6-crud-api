@@ -43,3 +43,7 @@ obj
 
 # local sqlite db that is auto generated
 LocalDatabase.db
+
+#sonarqube
+.scannerwork
+.sonarqube
