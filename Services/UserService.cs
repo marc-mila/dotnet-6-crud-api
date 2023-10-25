@@ -21,10 +21,10 @@ public class UserService : IUserService
     private readonly IMapper _mapper;
 
     public UserService(
-        DataContext context,
+        DataContext contex,
         IMapper mapper)
     {
-        _context = context;
+        _context = contex;
         _mapper = mapper;
     }
 
